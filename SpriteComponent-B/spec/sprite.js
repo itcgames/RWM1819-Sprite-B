@@ -8,8 +8,8 @@ describe('sprite()', function () {
 
   });
 
-  it("Check that the x position can be gotten", function () {
-    expect(Sprite.getGlobalBounds().x).to.be.a('number');
+  it("Check that the global bounds can be gotten", function () {
+    expect(Sprite.getGlobalBounds()).to.be.a('function');
   });
 
 
