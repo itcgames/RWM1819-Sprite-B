@@ -1,18 +1,28 @@
-<!DOCTYPE HTML>
-<html> 
-
+<!doctype html>
+<html>
 <head>
-	<title>SpriteManagerComponent</title>
-	<meta charset="utf-8"/>
-	<link rel="stylesheet" href="empty.css" />
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Mocha Spec Runner</title>
+  <link rel="stylesheet" href="bower_components/mocha/mocha.css">
 </head>
+<body>
+  <div id="mocha"></div>
+  <script src="bower_components/mocha/mocha.js"></script>
+  <script>mocha.setup('')</script>
+  <script src="bower_components/chai/chai.js"></script>
+  <script>
+    var assert = chai.assert;
+    var expect = chai.expect;
+    var should = chai.should();
+  </script>
 
-<body onload=main()>
-	<script src="Main.js"></script>
-	<script src="Game.js"></script>
-	<script src="Sprite.js"></script>
-	<script src="AssetManager.js"></script>
+  <!-- include source files here... -->
+  <script src="sprite.js"></script>
+
+  <!-- include spec files here... -->
+  <script src="spec/sprite.js"></script>
+
+  <script>mocha.run()</script>
 </body>
-
 </html>
-	
