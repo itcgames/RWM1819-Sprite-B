@@ -21,27 +21,89 @@ class Sprite
         this.y = y;
         this.img = src;
         this.ctx = ctx;
+
+        //Default values of 1 for scale.
+        this.scaleX = 1.0;
+        this.scaleY = 1.0;
+
+        //Get the scaled width and height on construction to initialize them
+        this.scaledWidth = this.width * this.scaleX
+        this.scaledHeight = this.height * this.scaleY;
+
+        //rotation angle in degrees
+        this.rotationAngle = 90;
     }
 
     draw()
     {
+        //Save ctx
+        //translate to sprite's centre point
+        //rotate ctx
+        //draw 
+        //restore ctx   
+        this.scaledWidth *= this.scaleX;
+        this.scaledHeight *= this.scaleY;
+
+        this.ctx.save();
+        this.ctx.translate(this.x + (this.scaledWidth / 2.0), this.y + (this.scaledHeight / 2.0));
+        this.ctx.rotate(90 * (Math.PI / 180));
         this.ctx.drawImage(this.img, 
                             this.frameLeft, 
                             this.frameTop, 
                             this.width, 
                             this.height, 
-                            this.x, 
-                            this.y, 
-                            this.width, 
-                            this.height);
+                            -this.x, 
+                            -this.y, 
+                            this.scaledWidth, 
+                            this.scaledHeight);
+        this.ctx.restore();
     }
     
+    /**
+     * Position setter
+     * @param {*} x X Position you want the sprite to be set to
+     * @param {*} y Y Position you want the sprite to be set to
+     */
     setPosition(x, y)
     {
         this.x = x;
         this.y = y;
     }
 
+    /**
+     * Position offset method
+     * @param {*} x Amount you want to offset the X position by
+     * @param {*} y Amount you want to offset the Y position by
+     */
+    move(x, y)
+    {
+        this.x += x;
+        this.y += y;
+    }
+    
+    /**
+     * Set the amount you want the sprite to be scaled by when drawn
+     * @param {*} x Amount to scale in the X direction
+     * @param {*} y Amount to scale in the Y direction
+     */
+    setScale(x, y)
+    {
+        this.scaleX = x;
+        this.scaleY = y;
+    }
+
+    /**
+     * Set the angle of rotation of the sprite.
+     * @param {*} angle Angle in degrees you want the sprite to be offset by;
+     */
+    setRotation(angle)
+    {
+        this.rotationAngle = angle;
+    }
+
+    /**
+     * Returns the global bounds of the sprite after transform has been applied
+     */
     getGlobalBounds()
     {
         return {x: this.x, y: this.y, width: this.width, height: this.height};

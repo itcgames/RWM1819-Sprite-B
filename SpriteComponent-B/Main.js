@@ -1,4 +1,3 @@
-var game;
 
 function main()
 {
@@ -17,17 +16,17 @@ function main()
 	
 	//One global ASSET_MANAGER
 	var ASSET_MANAGER = new AssetManager();
+	
+	game = new Game();
 
 	ASSET_MANAGER.queueDownload("cirno.png");
 	
-	
-	
 	ASSET_MANAGER.downloadAll(function() 
 	{
-
+		game.init(ASSET_MANAGER, ctx, canvas);
 	});
 
-	game = new Game(ASSET_MANAGER, ctx);
+	//game = new Game(ASSET_MANAGER, ctx);
 
 	game.update(ctx, canvas);
 	//mySprite.draw(ctx);
