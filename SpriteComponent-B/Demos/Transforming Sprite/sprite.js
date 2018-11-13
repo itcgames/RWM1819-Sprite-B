@@ -34,13 +34,13 @@ class Sprite
         this.rotationAngle = 0;
     }
 
-
-
-    /**
-     * Sprite draw function
-     */
     draw()
     {
+        //Save ctx
+        //translate to sprite's centre point
+        //rotate ctx
+        //draw 
+        //restore ctx 
         
         this.scaledWidth = this.width * this.scaleX;
         this.scaledHeight = this.height * this.scaleY;
