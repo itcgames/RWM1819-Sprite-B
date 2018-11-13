@@ -15,21 +15,17 @@ function main()
 	ctx = canvas.getContext("2d");
 	
 	//One global ASSET_MANAGER
-	var ASSET_MANAGER = new AssetManager();
+	var assetManager = new AssetManager();
 	
 	game = new Game();
 
-	ASSET_MANAGER.queueDownload("cirno.png");
+	assetManager.queueDownload("cirno.png");
 	
-	ASSET_MANAGER.downloadAll(function() 
+	assetManager.downloadAll(function() 
 	{
 		game.init(ASSET_MANAGER, ctx, canvas);
 	});
 
-	//game = new Game(ASSET_MANAGER, ctx);
-
-	//game.update(ctx, canvas);
-	//mySprite.draw(ctx);
 }
 
 
