@@ -23,7 +23,7 @@ function main()
 	
 	assetManager.downloadAll(function() 
 	{
-		game.init(ASSET_MANAGER, ctx, canvas);
+		game.init(assetManager, ctx, canvas);
 	});
 
 }
