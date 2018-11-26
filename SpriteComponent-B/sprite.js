@@ -83,6 +83,14 @@ class Sprite
         this.x += x;
         this.y += y;
     }
+    /**
+     * Method to offset the rotation angle
+     * @param {*} angle Angle in degrees you want to offset by
+     */
+    rotate(angle)
+    {
+        this.rotationAngle += angle;
+    }
     
     /**
      * Set the amount you want the sprite to be scaled by when drawn
