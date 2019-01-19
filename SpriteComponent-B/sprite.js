@@ -45,7 +45,7 @@ class Sprite
         this.scaledWidth = this.width * this.scaleX;
         this.scaledHeight = this.height * this.scaleY;
 
-
+        this.ctx.clearRect(this.x, this.y, this.width, this.height);
         this.ctx.save();
         this.ctx.translate(this.x + this.scaledWidth / 2, this.y + this.scaledHeight / 2);
         this.ctx.rotate(this.rotationAngle * (Math.PI / 180));
