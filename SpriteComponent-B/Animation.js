@@ -56,4 +56,10 @@ class Animation
     {
         this.looped = looped;
     }
+
+    getFrame()
+    {
+        return{ left: this.frameLeft, top: this.frameTop, width: this.frameWidth, height: this.frameHeight}
+    }
+
 }

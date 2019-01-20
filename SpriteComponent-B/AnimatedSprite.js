@@ -43,8 +43,8 @@ class AnimatedSprite extends Sprite
     playAnimation()
     {   
         this.animation.play();
-        this.frameLeft = this.animation.frameLeft;
-        this.frameTop = this.animation.frameTop;
+        this.frameLeft = this.animation.getFrame().left;
+        this.frameTop = this.animation.getFrame().top;
     }
 
     /**
