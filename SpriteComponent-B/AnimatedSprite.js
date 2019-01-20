@@ -13,12 +13,10 @@ class AnimatedSprite extends Sprite
      * @param {*} numFrames: number of frames in the animation
      * @param {*} ctx: reference to the drawing context
      */
-    constructor(src, width, height, frameLeft, frameTop, x, y, numFrames, ctx)
+    constructor(src, width, height, frameLeft, frameTop, x, y, ctx)
     {
-        //Make call to the sprite constructor
+        //Make call to the Sprite constructor
         super(src, width, height, frameLeft, frameTop, x, y, ctx);
-
-        this.numFrames = numFrames;
 
         //Store the original frame for looping the animation
         this.originalFrame = this.frameLeft;

@@ -21,14 +21,18 @@ class Game
 										  0, 
 										  100, 
 										  100, 
-										  8, 
 										  ctx);
+		
+										  //Create a new Animation passing a name, initial frame dimensions, and number of frames in the animation
 		this.walkAnimation = new Animation("walk", 0, 0, 108, 140, 8);
+		
+		//Make the animation looped.
 		this.walkAnimation.setLooped(true);
+		
+		//Set the animation of the AnimatedSprite to be the 
+		//walk animation that has been created.
 		this.sprite1.setAnimation(this.walkAnimation);
 	
-
-		
 		this.update(this.ctx, this.canvas);
 	}
 
@@ -36,7 +40,9 @@ class Game
 	{
 		
 		console.log("Update called");
+		//Call the playAnimation method of the animated sprite
 		this.sprite1.playAnimation();
+		//Draw the animated sprite
 		this.sprite1.draw();
 
 		window.requestAnimationFrame(function() {
