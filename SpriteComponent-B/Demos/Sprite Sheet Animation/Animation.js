@@ -68,6 +68,7 @@ class Animation
         this.looped = looped;
     }
 
+    //Returns the bounds of the animation frame
     getFrame()
     {
         return{ left: this.frameLeft, top: this.frameTop, width: this.frameWidth, height: this.frameHeight}
