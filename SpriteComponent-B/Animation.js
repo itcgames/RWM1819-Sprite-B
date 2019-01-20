@@ -20,31 +20,42 @@ class Animation
         this.looped = false;
         this.initialFrameLeft = frameLeft;
         this.frameCount = 0;
+        this.tickCount = 0;
+        this.frameRate = 60;
     }
 
+
+    //Animation play method to be called during the update loop
     play()
     {
-        this.frameCount = 0;
+        //increment the tick count once every update.
+        this.tickCount += 1;
 
-        if(this.looped === false)
+        //If the tickcount is higher than our frame interval (16.7ms by default)
+        if(this.tickCount > 1000 / this.frameRate)
         {
-            while(this.frameCount <= this.numFrames - 1)
+            if(this.looped === false)
             {
-                this.frameLeft += frameWidth;
-                this.frameCount++;
+                if(this.frameCount <= this.numFrames - 1)
+                {
+                    this.frameLeft += this.frameWidth;
+                    this.frameCount += 1;
+                }
+                this.frameCount = 0;
             }
-        }
 
 
-        else if(this.looped === true)
-        {
-            this.frameLeft += this.frameWidth;
-
-            //Loop back around to the first frame
-            if(this.frameLeft + this.frameWidth >= this.frameWidth * this.numFrames)
+            else if(this.looped === true)
             {
-                this.frameLeft = this.initialFrameLeft;
+                this.frameLeft += this.frameWidth;
+
+                //Loop back around to the first frame
+                if(this.frameLeft + this.frameWidth >= this.frameWidth * this.numFrames)
+                {
+                    this.frameLeft = this.initialFrameLeft;
+                }
             }
+            this.tickCount = 0;
         }
     }
 

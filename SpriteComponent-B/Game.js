@@ -27,7 +27,7 @@ class Game
 		this.walkAnimation = new Animation("walk", 0, 0, 108, 140, 8);
 		
 		//Make the animation looped.
-		this.walkAnimation.setLooped(true);
+		this.walkAnimation.setLooped(false);
 		
 		//Set the animation of the AnimatedSprite to be the 
 		//walk animation that has been created.
