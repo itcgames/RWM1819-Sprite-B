@@ -20,6 +20,7 @@ function main()
 	game = new Game();
 
 	ASSET_MANAGER.queueDownload("cirno.png");
+	ASSET_MANAGER.queueDownload("scott.png");
 	
 	ASSET_MANAGER.downloadAll(function() 
 	{

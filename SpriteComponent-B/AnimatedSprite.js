@@ -20,6 +20,9 @@ class AnimatedSprite extends Sprite
 
         this.numFrames = numFrames;
 
+        //Store the original frame for looping the animation
+        this.originalFrame = this.frameLeft;
+
         //Default values of 1 for scale.
         this.scaleX = 1.0;
         this.scaleY = 1.0;
@@ -33,18 +36,24 @@ class AnimatedSprite extends Sprite
     
         //Default value of 30 fps for animations.
         this.frameRate = 30;
+        this.animation;
     }
 
+    //Function to play the animation, called in an update loop.
     playAnimation()
-    {
-        //Store frame data for loop
-        var tempFrameLeft = this.frameLeft;
-        
-        for(var i = 0; i < this.numFrames; i++)
-        {
-            this.frameLeft += this.width;
-        }
+    {   
+        this.animation.play();
+        this.frameLeft = this.animation.frameLeft;
+        this.frameTop = this.animation.frameTop;
+    }
 
+    /**
+     * Function to set the animated sprite's animation
+     * @param {*} animation: Animation object
+     */
+    setAnimation(animation)
+    {
+        this.animation = animation;
     }
 
     
