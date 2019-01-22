@@ -30,7 +30,6 @@ class Animation
     {
         //increment the tick count once every update.
         this.tickCount += 1;
-
         //If the tickcount is higher than our frame interval (16.7ms by default)
         if(this.tickCount > 1000 / this.frameRate)
         {
@@ -41,7 +40,11 @@ class Animation
                     this.frameLeft += this.frameWidth;
                     this.frameCount += 1;
                 }
-                this.frameCount = 0;
+
+                if(this.frameCount >= numFrames)
+                {
+                    this.frameCount = 0;
+                }
             }
 
 
