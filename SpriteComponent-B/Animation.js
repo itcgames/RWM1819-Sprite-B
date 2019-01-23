@@ -44,7 +44,6 @@ class Animation
                 if(this.frameCount >= numFrames)
                 {
                     this.frameCount = 0;
-                    break;
                 }
             }
 
